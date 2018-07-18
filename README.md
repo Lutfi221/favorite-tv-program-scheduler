@@ -1,4 +1,4 @@
-# favorite-tv-program-scheduler
+# favorite-TV-program-scheduler
 It schedules your favorite T.V. programs from multiple channels into one. Currently only works with [mncvision](https://mncvision.id/schedule/table). Can be customized for other services.
 
 # Motivation
