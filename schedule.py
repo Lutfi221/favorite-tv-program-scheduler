@@ -39,6 +39,9 @@ def processSchedule(depth=5):
     for key in schedule:
         output += schedule[key][0:depth]
 
+    for x in output:
+        x['ETA'] = arrow.get(x['showtime'], 'DD/MMM/YYYY HH:mm').humanize()
+
     return sortSchedule(output)
 
 
@@ -50,12 +53,17 @@ def viewSchedule():
     for x in processedSchedule:
         x.pop('timestamp')
 
-    print(tabulate(processedSchedule, headers={
-        'name': 'Name',
-        'channel': 'Channel',
-        'ETA': 'ETA',
-        'showtime': 'Showtime (GMT+9)'
-        }, tablefmt='psql'))
+    # Ordering it to be ready for the "tabulate" function.
+    for index, value in enumerate(processedSchedule):
+        processedSchedule[index] = [
+            value['name'], value['channel'], value['ETA'], value['showtime']
+        ]
+
+    print(tabulate(processedSchedule, headers=[
+        'Name', 'Channel', 'ETA', 'Showtime'
+        ], tablefmt='psql'))
 
 
 viewSchedule()
+
+input()

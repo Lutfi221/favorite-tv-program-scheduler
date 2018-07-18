@@ -88,7 +88,6 @@ def processResponse(response):
             'name': value,
             'channel': channels[index],
             'showtime': showtime.format('DD/MMM/YYYY HH:mm'),
-            'ETA': showtime.humanize(),
             'timestamp': showtime.timestamp})
 
     return output
