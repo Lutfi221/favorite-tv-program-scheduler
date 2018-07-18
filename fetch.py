@@ -35,7 +35,7 @@ def fetch():
 
         schedule[x] = processResponse(page.decode('utf-8'))
 
-    with open('schedule.json', 'w') as file:
+    with open('schedule.json', 'w+') as file:
         file.write(json.dumps(schedule))
 
 
