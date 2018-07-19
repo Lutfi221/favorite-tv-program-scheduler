@@ -45,5 +45,5 @@ CHANNEL_EXCLUSIONS = ['hd']
 # Dependencies
 Install them using "pip install"
 
-https://github.com/crsmithdev/arrow
-https://github.com/gregbanks/python-tabulate
+- https://github.com/crsmithdev/arrow
+- https://github.com/gregbanks/python-tabulate
