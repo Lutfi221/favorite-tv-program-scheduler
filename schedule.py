@@ -6,6 +6,7 @@ Schedule
 import json
 import arrow
 from tabulate import tabulate
+from constants import LOCAL_TIMEZONE
 
 
 def sortSchedule(schedule):
@@ -40,7 +41,8 @@ def processSchedule(depth=5):
         output += schedule[key][0:depth]
 
     for x in output:
-        x['ETA'] = arrow.get(x['showtime'], 'DD/MMM/YYYY HH:mm').humanize()
+        x['ETA'] = arrow.get(x['showtime'], 'DD/MMM/YYYY HH:mm').replace(
+            tzinfo=LOCAL_TIMEZONE).humanize()
 
     return sortSchedule(output)
 
