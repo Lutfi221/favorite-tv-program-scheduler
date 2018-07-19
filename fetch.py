@@ -7,6 +7,8 @@ import urllib.parse
 import json
 import re
 import arrow
+from constants import (URL, SCHEDULE_TIMEZONE, LOCAL_TIMEZONE,
+                       CHANNEL_EXCLUSIONS, WANTED_PROGRAMS)
 
 
 def fetch():
@@ -37,16 +39,6 @@ def fetch():
 
     with open('schedule.json', 'w+') as file:
         file.write(json.dumps(schedule))
-
-
-def getWanted(filename='wanted programs.json'):
-    """ Gets the wanted programs from the json file
-    """
-
-    with open(filename) as file:
-        wantedPrograms = json.loads(file.read())
-
-    return wantedPrograms
 
 
 def processResponse(response):
@@ -92,15 +84,5 @@ def processResponse(response):
 
     return output
 
-# def updateSchedule():
-
-
-WANTED_PROGRAMS = getWanted()
-URL = 'https://mncvision.id/schedule/table'
-SCHEDULE_TIMEZONE = '+0700'
-LOCAL_TIMEZONE = '+0900'
-
-# Channel names (or part of channel names) must be lowercase.
-CHANNEL_EXCLUSIONS = ['hd']
 
 fetch()
