@@ -8,7 +8,12 @@ I don't like wasting a lot of time from my day just to scheck multiple schedules
 1. Make sure all the dependencies are installed.
 2. Adjust some of the constants in the python files so they suit your needs.
 ```python
-WANTED_PROGRAMS = getWanted()
+WANTED_PROGRAMS = [
+    'kevin can wait',
+    'the simpsons',
+    'live pd',
+    'family guy'
+]
 URL = 'https://mncvision.id/schedule/table'
 SCHEDULE_TIMEZONE = '+0700'
 LOCAL_TIMEZONE = '+0900'
@@ -16,16 +21,8 @@ LOCAL_TIMEZONE = '+0900'
 # Channel names (or part of channel names) must be lowercase.
 CHANNEL_EXCLUSIONS = ['hd']
 ```
-3. Open the "wanted programs.json" and fill the array to the programs that you want.
-```javascript
-[
-    "kevin can wait",
-    "the simpsons",
-    "live pd"
-]
-```
-4. Open "fetch.py". After it finished running, you should see a new file called "schedule.json" with informations about your programs.
-5. Open "schedule.py" to see your customized schedule. Expected output will be like:
+3. Open "fetch.py". After it finished running, you should see a new file called "schedule.json" with informations about your programs.
+4. Open "schedule.py" to see your customized schedule. Expected output will be like:
 ```
 +--------------------+------------------------------+---------------------+-------------+
 | Showtime (GMT+9)   | Name                         | Channel             | ETA         |
